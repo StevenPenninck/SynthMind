@@ -1,6 +1,6 @@
 # SynthMind
 A Python TUI application for managing synth devices stored in a SQLite database (in dutch)
-<img width="567" height="378" alt="SynthMind1BW" src="https://github.com/user-attachments/assets/63af5166-19b7-459d-be25-ca640c5ee830" />
+<img width="527" height="192" alt="SynthMind1BW" src="https://github.com/user-attachments/assets/bd8c202e-6412-4433-824a-7789e8135cb7" />
 
 ## Installatie (tester/user)
 
