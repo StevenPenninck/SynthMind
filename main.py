@@ -3,3 +3,7 @@
 Created 
 @author: Steven Penninck
 """
+
+from services.database import get_connection
+
+get_connection()
