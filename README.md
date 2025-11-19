@@ -1,6 +1,6 @@
 # SynthMind
 A Python TUI application for managing synth devices stored in a SQLite database (in dutch)
-
+<img width="527" height="192" alt="SynthMind1BW" src="https://github.com/user-attachments/assets/bd8c202e-6412-4433-824a-7789e8135cb7" />
 
 ## Installatie (tester/user)
 
@@ -12,6 +12,3 @@ py -m venv venv
 pip install -r requirements.txt
 # kopieer .env.example naar .env en vul DB_DATABASE/DATABASE_PATH
 py main.py
-```
-
-Created as part of the [Micro Degree program in Infrastructure/Cybersecurity](https://www.vives.be/nl/handelswetenschappen-en-bedrijfskunde/microdegree-cybersecurity-infrastructure-via) at Vives Kortrijk.
