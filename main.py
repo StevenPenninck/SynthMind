@@ -3,7 +3,6 @@
 Created 
 @author: Steven Penninck
 """
+from services.crud import menu
 
-from services.database import get_connection
-
-get_connection()
+menu()

@@ -1,10 +1,10 @@
 class Synth:
     
-    """""
+    """
     Deze klasse stelt één rij uit de tabel "Synth" voor.
     Het doel is ruwe database-data (tuples) om te zetten naar objecten,
     en vanuit objecten weer makkelijk waarden te geven voor SQL-statements.
-    """""
+    """
     #Constructor van de klasse. Hiermee maken we een nieuw Synth-object aan.
     #De parameters hebben standaardwaardes zodat je ook met minder info kan starten.
     
@@ -49,7 +49,16 @@ class Eigenschap:
         return f"Eigenschap(id={self.id}, synth_id={self.synth_id}, naam='{self.naam}')"
 
 
+# Eenvoudige helperfuncties om tuples naar objecten om te zetten
 
+def eigenschap_from_row(row):
+    # Volgorde verwacht: Id, synthId, naam
+    return Eigenschap(
+        id=row[0],
+        synth_id=row[1],
+        naam=row[2],
+    )
+    
 if __name__ == "__main__":
     # Klein voorbeeld om te tonen hoe de klassen gebruikt worden of om te testen.
     # Dit wordt alleen uitgevoerd als je dit bestand direct runt (py synths.py in de directory /models),

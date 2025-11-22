@@ -12,14 +12,7 @@ py -m venv venv
 pip install -r requirements.txt
 # kopieer .env.example naar .env en vul DB_DATABASE/DATABASE_PATH
 py main.py
-````
-Het testen van het menu als volgt vanuit de root:
 
-````
-py -c "from services.crud import menu; menu()"
-````
-
--voorlopige opties om alle synths te tonen, synths toe te voegen en het programme te verlaten
 
 Created as part of the [Micro Degree program in Infrastructure/Cybersecurity](https://www.vives.be/nl/handelswetenschappen-en-bedrijfskunde/microdegree-cybersecurity-infrastructure-via) at Vives Kortrijk.
 

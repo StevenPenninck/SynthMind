@@ -1,11 +1,9 @@
-
 #CLI menu om CRUD statements uit te voeren
 
 import sys
-
 from services.database import get_connection
+from models.synths import Synth, Eigenschap,eigenschap_from_row
 
-from models.synths import Synth
 
 # Hulpfunctie: vraag steeds om een geheel getal en blijf herhalen tot de invoer correct is.
 def _prompt_int(prompt):
@@ -66,37 +64,104 @@ def voeg_synth_toe():
         print("Synth toegevoegd.")
     finally:
         conn.close()
-        
-# Sluit het programma netjes af.
+
+
+# Toon alle eigenschappen (namen) die horen bij een geselecteerde synth.
+def toon_eigenschappen_van_synth():
+    synth_id = _prompt_int("Geef het Id van de synth: ")
+    conn = get_connection()
+    try:
+        cursor = conn.execute(
+            "SELECT Id, synthId, naam FROM Eigenschappen WHERE synthId = ? ORDER BY naam",
+            (synth_id,),
+        )
+        rows = cursor.fetchall()
+        # Meld wanneer er geen eigenschappen zijn
+        if not rows:
+            print("Geen eigenschappen gevonden voor deze synth.")
+            return
+        print("Naam")
+        for r in rows:
+            e = eigenschap_from_row(r)
+            print(f"{e.naam}")
+    finally:
+        conn.close()
+
+
+# Voeg een eigenschap toe aan een synth. Als de eigenschap al bestaat, optie om de naam te wijzigen.
+def voeg_eigenschap_toe():
+    print("Eigenschap toevoegen")
+    synth_id = _prompt_int("Synth Id: ")
+    naam = input("Eigenschap naam: ").strip()
+    conn = get_connection()
+    try:
+        # Controle: bestaat deze eigenschap al voor deze synth?
+        row = conn.execute(
+            "SELECT Id FROM Eigenschappen WHERE synthId = ? AND naam = ?",
+            (synth_id, naam),
+        ).fetchone()
+        if row:
+            print("Eigenschap bestaat al voor deze synth.")
+            keuze = input("Wil je de naam wijzigen? (j/n): ").strip().lower()
+            if keuze == 'j':
+                nieuwe_naam = input("Nieuwe eigenschap naam: ").strip()
+                if nieuwe_naam:
+                    conn.execute(
+                        "UPDATE Eigenschappen SET naam = ? WHERE Id = ?",
+                        (nieuwe_naam, row[0]),
+                    )
+                    conn.commit()
+                    print("Eigenschapnaam bijgewerkt.")
+                else:
+                    print("Geen wijziging doorgevoerd (lege naam).")
+            else:
+                print("Geen wijziging doorgevoerd.")
+        else:
+            # Nog niet bestaand: invoegen
+            eig = Eigenschap(id=None, synth_id=synth_id, naam=naam)
+            conn.execute(
+                "INSERT INTO Eigenschappen (synthId, naam) VALUES (?, ?)",
+                eig.insert_params(),
+            )
+            conn.commit()
+            print("Eigenschap toegevoegd.")
+    finally:
+        conn.close()
+
+
+# Sluit het programma af.
 def programma_verlaten():
     sys.exit(0)
-    
-    
-# Simpel CLI-menu om functionaliteiten aan te roepen op basis van keuze 1..3.
+
+
+# Simpel CLI-menu om functionaliteiten aan te roepen op basis van keuze 1..5.
 def menu():
     while True:
         print(
             """
 1. Toon alle synths
 2. Voeg een synth toe
-3. Verlaat het programma
+3. Toon eigenschappen van een synth
+4. Voeg of wijzig een eigenschap
+5. Verlaat het programma
 """
         )
         try:
-            #lees ingevoerde keuze en stuur door naar de juiste functie
+            # Parseer keuze en stuur door naar de juiste functie
             keuze = int(input("Geef het nummer van je keuze: "))
         except ValueError:
-            print("Je moet een geheel getal van 1 tot 3 ingeven.")
+            print("Je moet een geheel getal van 1 tot 5 ingeven.")
             continue
 
         if keuze == 1:
             toon_alle_synths()
         elif keuze == 2:
             voeg_synth_toe()
-
         elif keuze == 3:
+            toon_eigenschappen_van_synth()
+        elif keuze == 4:
+            voeg_eigenschap_toe()
+        elif keuze == 5:
             programma_verlaten()
         else:
-            print("Je moet een getal van 1 tot 3 ingeven.")
-
-        
+            print("Je moet een getal van 1 tot 5 ingeven.")
