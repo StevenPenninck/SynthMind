@@ -209,3 +209,5 @@ def menu():
             programma_verlaten()
         else:
             print("Je moet een getal van 1 tot 6 ingeven.")
+
+    

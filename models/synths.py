@@ -82,3 +82,5 @@ if __name__ == "__main__":
     e = Eigenschap(id=None, synth_id=1, naam="Experimenteel/Modulair")
     print(e)
     print("INSERT params:", e.insert_params())
+
+    
