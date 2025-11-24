@@ -3,11 +3,6 @@
 import sys
 from services.database import get_connection
 from models.synths import Synth, Eigenschap,eigenschap_from_row
-<<<<<<< HEAD
-=======
-
->>>>>>> 8efc0a5 (toevoeging CSV conversie)
-
 
 # Hulpfunctie: vraag steeds om een geheel getal en blijf herhalen tot de invoer correct is.
 def _prompt_int(prompt):
