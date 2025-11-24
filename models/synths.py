@@ -58,9 +58,7 @@ def eigenschap_from_row(row):
         synth_id=row[1],
         naam=row[2],
     )
-<<<<<<< HEAD
-    
-=======
+
 
 """ evt voor toekomstig gebruik :
 def synth_from_row(row):
