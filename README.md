@@ -35,7 +35,7 @@ Als je wel een bestandsnaam invoert, wordt het bestand opgeslagen als:
 
 Als er geen bestandsnaam wordt ingevoerd (alleen op Enter drukt), wordt het bestand automatisch synths.csv genoemd:
 /database/synths.csv
->>>>>>> 8efc0a5 (toevoeging CSV conversie)
+
 
 
 Created as part of the [Micro Degree program in Infrastructure/Cybersecurity](https://www.vives.be/nl/handelswetenschappen-en-bedrijfskunde/microdegree-cybersecurity-infrastructure-via) at Vives Kortrijk.
