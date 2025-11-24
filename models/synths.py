@@ -58,7 +58,23 @@ def eigenschap_from_row(row):
         synth_id=row[1],
         naam=row[2],
     )
+<<<<<<< HEAD
     
+=======
+
+""" evt voor toekomstig gebruik :
+def synth_from_row(row):
+    # Volgorde verwacht: Id, naam, merk, prijs, uitgavejaar
+    return Synth(
+        id=row[0],
+        naam=row[1],
+        merk=row[2],
+        prijs=row[3],
+        uitgavejaar=row[4],
+    )
+"""    
+
+>>>>>>> 8efc0a5 (toevoeging CSV conversie)
 if __name__ == "__main__":
     # Klein voorbeeld om te tonen hoe de klassen gebruikt worden of om te testen.
     # Dit wordt alleen uitgevoerd als je dit bestand direct runt (py synths.py in de directory /models),

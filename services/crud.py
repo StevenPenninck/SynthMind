@@ -3,6 +3,10 @@
 import sys
 from services.database import get_connection
 from models.synths import Synth, Eigenschap,eigenschap_from_row
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8efc0a5 (toevoeging CSV conversie)
 
 
 # Hulpfunctie: vraag steeds om een geheel getal en blijf herhalen tot de invoer correct is.
@@ -128,6 +132,43 @@ def voeg_eigenschap_toe():
     finally:
         conn.close()
 
+<<<<<<< HEAD
+=======
+# Exporteer alle synths naar een CSV-bestand (met ';' als delimiter, geschikt voor EU-Excel).
+def exporteer_synths_naar_csv():
+    pad = input("Bestandsnaam voor export (bv. synths.csv): ").strip() or "synths.csv"
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            """
+            SELECT s.Id,
+                   s.naam,
+                   s.merk,
+                   s.prijs,
+                   s.uitgavejaar,
+                   GROUP_CONCAT(e.naam, ' | ') AS eigenschappen
+            FROM Synth s
+            LEFT JOIN Eigenschappen e ON e.synthId = s.Id
+            GROUP BY s.Id, s.naam, s.merk, s.prijs, s.uitgavejaar
+            ORDER BY s.Id ASC
+            """
+        ).fetchall()
+        # Bouw volledig pad binnen de geconfigureerde db_path
+        full_path = os.path.join(db_path, pad)
+        # Zorg dat de map bestaat voor we wegschrijven
+        os.makedirs(os.path.dirname(full_path), exist_ok=True)
+        with open(full_path, "w", newline="") as f:
+            # Gebruik ';' als scheidingsteken omdat Excel in veel EU-locales
+            # Hierdoor worden kolommen correct opgesplitst in Excel.
+            writer = csv.writer(f, delimiter=';')
+            writer.writerow(["Id", "Naam", "Merk", "Prijs", "Uitgavejaar", "Eigenschappen"])
+            for r in rows:
+                id_, naam, merk, prijs, jaar, eig = r
+                writer.writerow([id_, naam, merk, prijs, jaar, eig or ""])
+        print(f"{len(rows)} synth(s) geëxporteerd naar {full_path}.")
+    finally:
+        conn.close()
+>>>>>>> 8efc0a5 (toevoeging CSV conversie)
 
 # Sluit het programma af.
 def programma_verlaten():
