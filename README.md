@@ -48,6 +48,9 @@ python main.py
 
 Wanneer je kiest voor optie 5 in het menu – Export naar CSV, wordt er een CSV-bestand aangemaakt in de map die je instelt via `DATABASE_PATH` (bv. `./database`).
 
+<img width="782" height="246" alt="image" src="https://github.com/user-attachments/assets/fa83e7fe-7339-4303-b45b-366f96402844" />
+
+
 Als je een bestandsnaam invoert, wordt het bestand opgeslagen als:
 `<DATABASE_PATH>/<bestandsnaam>.csv`
 
