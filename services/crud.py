@@ -127,8 +127,7 @@ def voeg_eigenschap_toe():
     finally:
         conn.close()
 
-<<<<<<< HEAD
-=======
+
 # Exporteer alle synths naar een CSV-bestand (met ';' als delimiter, geschikt voor EU-Excel).
 def exporteer_synths_naar_csv():
     pad = input("Bestandsnaam voor export (bv. synths.csv): ").strip() or "synths.csv"
@@ -163,7 +162,7 @@ def exporteer_synths_naar_csv():
         print(f"{len(rows)} synth(s) geëxporteerd naar {full_path}.")
     finally:
         conn.close()
->>>>>>> 8efc0a5 (toevoeging CSV conversie)
+
 
 # Sluit het programma af.
 def programma_verlaten():
