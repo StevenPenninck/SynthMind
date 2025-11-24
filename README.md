@@ -5,7 +5,9 @@ A Python TUI application for managing synth devices stored in a SQLite database 
 ## Vereisten
 
 - Python 3.11 of hoger geïnstalleerd
-- Maak een `.env` aan op basis van `.env.example` (vul `DB_DATABASE` en `DATABASE_PATH` in)
+- Maak een `.env` aan op basis van `.env.example` (vul `DB_DATABASE` en `DATABASE_PATH` in) in \config
+<img width="501" height="102" alt="example_env" src="https://github.com/user-attachments/assets/aea330ed-de39-44e0-9f19-658bd6bcdb0e" />
+
 
 ## Installatie (tester/user)
 
@@ -51,8 +53,12 @@ Als je een bestandsnaam invoert, wordt het bestand opgeslagen als:
 
 Als er geen bestandsnaam wordt ingevoerd (alleen op Enter drukt), wordt het bestand automatisch `synths.csv` genoemd:
 `<DATABASE_PATH>/synths.csv`
+<img width="763" height="218" alt="example_csv" src="https://github.com/user-attachments/assets/8d8aca3b-3852-408c-bdb0-a1935f1c1af8" />
 
 ### Voorbeeld Database
+
+<img width="347" height="233" alt="example_db_synths" src="https://github.com/user-attachments/assets/7161317f-adc6-4fcc-8485-a655d1b2fab0" />
+<img width="374" height="181" alt="example_db_eigenschappen" src="https://github.com/user-attachments/assets/a5c30b32-e1df-4bc0-8bac-7d20a96e5996" />
 
 
 
