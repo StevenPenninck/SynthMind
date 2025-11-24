@@ -53,6 +53,7 @@ Als je een bestandsnaam invoert, wordt het bestand opgeslagen als:
 
 Als er geen bestandsnaam wordt ingevoerd (alleen op Enter drukt), wordt het bestand automatisch `synths.csv` genoemd:
 `<DATABASE_PATH>/synths.csv`
+
 <img width="763" height="218" alt="example_csv" src="https://github.com/user-attachments/assets/8d8aca3b-3852-408c-bdb0-a1935f1c1af8" />
 
 ### Voorbeeld Database
