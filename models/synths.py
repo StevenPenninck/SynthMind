@@ -72,7 +72,6 @@ def synth_from_row(row):
     )
 """    
 
->>>>>>> 8efc0a5 (toevoeging CSV conversie)
 if __name__ == "__main__":
     # Klein voorbeeld om te tonen hoe de klassen gebruikt worden of om te testen.
     # Dit wordt alleen uitgevoerd als je dit bestand direct runt (py synths.py in de directory /models),

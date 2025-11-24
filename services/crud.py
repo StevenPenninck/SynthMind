@@ -1,6 +1,10 @@
 #CLI menu om CRUD statements uit te voeren
 
 import sys
+import csv
+import os
+import sys
+from config.config import db_path
 from services.database import get_connection
 from models.synths import Synth, Eigenschap,eigenschap_from_row
 
@@ -169,23 +173,26 @@ def programma_verlaten():
     sys.exit(0)
 
 
-# Simpel CLI-menu om functionaliteiten aan te roepen op basis van keuze 1..5.
+# Simpel CLI-menu om functionaliteiten aan te roepen op basis van keuze 1..6.
 def menu():
     while True:
         print(
             """
+---SynthMind is een programma om je Synthgear te organiseren---
+
 1. Toon alle synths
 2. Voeg een synth toe
 3. Toon eigenschappen van een synth
 4. Voeg of wijzig een eigenschap
-5. Verlaat het programma
+5. Exporteer synths naar CSV
+6. Verlaat het programma
 """
         )
         try:
             # Parseer keuze en stuur door naar de juiste functie
             keuze = int(input("Geef het nummer van je keuze: "))
         except ValueError:
-            print("Je moet een geheel getal van 1 tot 5 ingeven.")
+            print("Je moet een geheel getal van 1 tot 6 ingeven.")
             continue
 
         if keuze == 1:
@@ -197,6 +204,8 @@ def menu():
         elif keuze == 4:
             voeg_eigenschap_toe()
         elif keuze == 5:
+            exporteer_synths_naar_csv()
+        elif keuze == 6:
             programma_verlaten()
         else:
-            print("Je moet een getal van 1 tot 5 ingeven.")
+            print("Je moet een getal van 1 tot 6 ingeven.")
