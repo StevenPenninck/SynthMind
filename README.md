@@ -5,7 +5,7 @@ A Python TUI application for managing synth devices stored in a SQLite database 
 ## Vereisten
 
 - Python 3.11 of hoger geïnstalleerd
-- Maak een `.env` aan op basis van `.env.example` (vul `DB_DATABASE` en `DATABASE_PATH` in) in \config
+- Maak een `.env` aan op basis van `.env.example` (vul `DB_DATABASE` en `DATABASE_PATH` in) in \config\.env
 <img width="501" height="102" alt="example_env" src="https://github.com/user-attachments/assets/aea330ed-de39-44e0-9f19-658bd6bcdb0e" />
 
 
