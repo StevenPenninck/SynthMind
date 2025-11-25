@@ -43,6 +43,12 @@ pip install -r requirements.txt
 # kopieer .env.example naar .env en vul DB_DATABASE/DATABASE_PATH
 python main.py
 ```
+### Voorbeeld Database
+
+Database wordt automatisch aangemaakt bij het kiezen van een optie in het menu.
+
+<img width="347" height="233" alt="example_db_synths" src="https://github.com/user-attachments/assets/7161317f-adc6-4fcc-8485-a655d1b2fab0" />
+<img width="374" height="181" alt="example_db_eigenschappen" src="https://github.com/user-attachments/assets/a5c30b32-e1df-4bc0-8bac-7d20a96e5996" />
 
 ### CSV Export
 
@@ -59,10 +65,6 @@ Als er geen bestandsnaam wordt ingevoerd (alleen op Enter drukt), wordt het best
 
 <img width="763" height="218" alt="example_csv" src="https://github.com/user-attachments/assets/8d8aca3b-3852-408c-bdb0-a1935f1c1af8" />
 
-### Voorbeeld Database
-
-<img width="347" height="233" alt="example_db_synths" src="https://github.com/user-attachments/assets/7161317f-adc6-4fcc-8485-a655d1b2fab0" />
-<img width="374" height="181" alt="example_db_eigenschappen" src="https://github.com/user-attachments/assets/a5c30b32-e1df-4bc0-8bac-7d20a96e5996" />
 
 
 
